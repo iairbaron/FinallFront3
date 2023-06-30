@@ -1,36 +1,50 @@
-import { useState } from 'react'
-import { createContext } from 'react'
+import { createContext, useReducer } from 'react'
 
 export const ThemeContext = createContext()
 
-const ThemeProvider = (props) => {
+const themes = {
+  light: {
+    font: "white",
+    background: "black",
+  },
+  dark: {
+    font: "black",
+    background: "white",
+  },
+};
 
- const themes = {
-    light: {
-      font: "white",
-      background: "black",
-    },
-    dark: {
-      font: "black",
-      background: "white",
-    },
+const initialState = {
+  theme: themes.dark,
+};
+
+const themeReducer = (state, action) => {
+  switch (action.type) {
+    case 'TOGGLE_THEME':
+      return {
+        ...state,
+        theme: state.theme === themes.dark ? themes.light : themes.dark,
+      };
+    default:
+      throw new Error();
+  }
+};
+
+const ThemeProvider = (props) => {
+  const [state, dispatch] = useReducer(themeReducer, initialState);
+
+  const changeTheme = () => {
+    dispatch({ type: 'TOGGLE_THEME' });
   };
 
- const [theme, setTheme] = useState(themes.dark)
-
-    const changeTheme = () => {
-       {theme.font === themes.dark.font ? setTheme(themes.light) :setTheme(themes.dark)}
-      }
-
-const value={
+  const value = {
     themes,
-    theme,
-    changeTheme
-}
+    theme: state.theme,
+    changeTheme,
+  };
 
   return (
     <ThemeContext.Provider value={value}>
-        {props.children}
+      {props.children}
     </ThemeContext.Provider>
   )
 }

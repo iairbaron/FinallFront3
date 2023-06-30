@@ -14,17 +14,20 @@ const Detail = () => {
         console.log(response.data)
       })
   }, [url])
-  
+
   return (
-    <>
-      <h1>Detail Dentist id </h1>
-      {/* Aquí deberás renderizar la información detallada de un usuario en particular */}
-      {/* Debes mostrar el name - email - phone - website para cada usuario en particular */}
-      <p  >Name: {dentista.name}</p>
-      <p>Email: {dentista.email}</p>
-      <p>Phone: {dentista.phone}</p>
-      <p>Website: {dentista.website}</p>
-    </>
+    <div style={{width:"100%", display:"flex",justifyContent:"center",alignItems:"center"}}>
+    <div className="card" >
+      <div style={{ maxWidth: '400px' }}>
+        <h1>Detail Dentist ID {params.id}</h1>
+
+        <p>Name: {dentista.name}</p>
+        <p>Email: {dentista.email}</p>
+        <p>Phone: {dentista.phone}</p>
+        <p>Website: {dentista.website}</p>
+      </div>
+    </div>
+    </div>
   )
 }
 

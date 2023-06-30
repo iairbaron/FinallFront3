@@ -1,9 +1,5 @@
 import axios from "axios";
-import { createContext, useEffect, useState, useReducer } from "react";
-
-
-
-
+import { createContext, useEffect, useState } from "react";
 
 const url = "https://jsonplaceholder.typicode.com/users";
 export const ContextGlobal = createContext({});
