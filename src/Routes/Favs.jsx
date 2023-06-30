@@ -12,7 +12,8 @@ const Favs = () => {
   }, []);
 
   return (
-    <div>
+    <div style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
+    <div >
       <h2>Favorites</h2>
       {likesList.length === 0 ? (
         <p>No favorites yet</p>
@@ -25,6 +26,7 @@ const Favs = () => {
           ))}
         </ul>
       )}
+    </div>
     </div>
   );
 };

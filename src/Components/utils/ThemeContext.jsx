@@ -5,7 +5,7 @@ export const ThemeContext = createContext()
 const themes = {
   light: {
     font: "white",
-    background: "black",
+    background: "red",
   },
   dark: {
     font: "black",
