@@ -20,7 +20,6 @@ const Detail = () => {
     <div className="card" >
       <div style={{ maxWidth: '400px' }}>
         <h1>Detail Dentist ID {params.id}</h1>
-
         <p>Name: {dentista.name}</p>
         <p>Email: {dentista.email}</p>
         <p>Phone: {dentista.phone}</p>
